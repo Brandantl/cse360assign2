@@ -27,11 +27,12 @@ public class SimpleList
 	 */
 	public void add(int num)
 	{
-        if (count < 10)
+        if (count >= numArray.length)
         {
-        	count++;
+        	resizeArray(numArray);
         }
-		
+        count++;
+        
         // Free up index 0
 		// This should destroy index 9
 		// We start at 8 because 8 + 1 = 9 which is the 
@@ -121,7 +122,8 @@ public class SimpleList
 	}
 	
 	/**
-	 * @return
+	 * Returns a string of the data in SimpleList
+	 * @return String
 	 */
 	public String toString()
 	{
@@ -136,6 +138,22 @@ public class SimpleList
 			}
 		}
 		return ret;
+	}
+	
+	/**
+	 * Takes a given array, resizes it by 50% then returns it.
+	 * @param Array
+	 * @return Array
+	 */
+	public static int[] resizeArray(int[] arrayToResize)
+	{
+		// create a new array twice the size
+		int newCapacity = arrayToResize.length + arrayToResize.length / 2;
+		int[] newArray = new int[newCapacity];
+
+		System.arraycopy(arrayToResize, 0, 
+	            newArray, 0, arrayToResize.length);
+		return newArray;
 	}
 
 	private int count;
