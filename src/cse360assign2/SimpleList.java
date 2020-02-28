@@ -142,6 +142,37 @@ public class SimpleList
 		return found_idx;
 	}
 	
+	/**
+	 * Returns the first element of SimpleList
+	 * @return int
+	 */
+	public int first()
+	{
+		int ret = -1;
+		
+		if (count > 0)
+		{
+			ret = numArray[0];
+		}
+		
+		return ret;
+	}
+	
+	/**
+	 * Returns the last element of SimpleList
+	 * @return int
+	 */
+	public int last()
+	{
+		int ret = -1;
+		
+		if (count > 0)
+		{
+			ret = numArray[count - 1];
+		}
+		
+		return ret;	
+	}
 	
 	/**
 	 * Returns a string of the data in SimpleList
