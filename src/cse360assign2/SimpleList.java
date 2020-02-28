@@ -22,6 +22,21 @@ public class SimpleList
 	}
 	
 	/**
+	 * This appends an interger to the end of the SimpleList
+	 * @param Integer to add to the SimpleList
+	 */
+	public void append(int num)
+	{
+        if (count >= numArray.length)
+        {
+        	increaseArray(numArray);
+        }
+        count++;
+        
+        numArray[count - 1] = num;
+	}
+	
+	/**
 	 * This adds an integer to the SimpleList class.
 	 * @param Integer to add to the SimpleList
 	 */
@@ -126,6 +141,7 @@ public class SimpleList
 		}
 		return found_idx;
 	}
+	
 	
 	/**
 	 * Returns a string of the data in SimpleList
