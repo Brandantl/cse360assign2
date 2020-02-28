@@ -29,7 +29,7 @@ public class SimpleList
 	{
         if (count >= numArray.length)
         {
-        	resizeArray(numArray);
+        	increaseArray(numArray);
         }
         count++;
         
@@ -100,6 +100,12 @@ public class SimpleList
 			}
 		}
 		// Else the item doesn't exist in the array.
+		
+		if ((1 - (count / numArray.length)) > 0.25)
+		{
+			
+			decreaseArray(numArray, count);
+		}
 	}
 	
 	/**
@@ -145,14 +151,26 @@ public class SimpleList
 	 * @param Array
 	 * @return Array
 	 */
-	public static int[] resizeArray(int[] arrayToResize)
+	public static int[] increaseArray(int[] arrayToResize)
 	{
-		// create a new array twice the size
 		int newCapacity = arrayToResize.length + arrayToResize.length / 2;
 		int[] newArray = new int[newCapacity];
 
-		System.arraycopy(arrayToResize, 0, 
-	            newArray, 0, arrayToResize.length);
+		System.arraycopy(arrayToResize, 0, newArray, 0, arrayToResize.length);
+		return newArray;
+	}
+	
+	/**
+	 * Decrease Array size
+	 * @param Array
+	 * @return Array
+	 */
+	public static int[] decreaseArray(int[] arrayToDecrease, int end_idx)
+	{
+		int newCapacity = end_idx;
+		int[] newArray = new int[newCapacity];
+
+		System.arraycopy(arrayToDecrease, 0, newArray, 0, end_idx);
 		return newArray;
 	}
 
