@@ -194,6 +194,15 @@ public class SimpleList
 	}
 	
 	/**
+	 * Returns the size of the SimpleList
+	 * @return int
+	 */
+	public int size()
+	{
+		return count;
+	}
+	
+	/**
 	 * Takes a given array, resizes it by 50% then returns it.
 	 * @param Array
 	 * @return Array
